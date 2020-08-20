@@ -11,10 +11,10 @@
 
 
 <div class="main-search-div">
-  <form action="{% url 'used-search' %}">
+  <form action="{% url 'search' %}">
     <div class="wrapper-search">
 
-      <input required name='q' type="text" class="input" placeholder="Search for used books..">
+      <input required name='q' value="{{ q }}" type="text" class="input" placeholder="Search for books, author..">
 
       <div class="searchbtn">
         <button style="background: transparent; border:none;">
@@ -27,14 +27,14 @@
   </form>
 
   {% if not queries %}
-  <h1 style="text-align: center;margin-top: -10px;">Not Found</h1>
+  <h1 style="text-align: center;margin-top: -30px;">Not Found</h1>
+
   {% else %}
-  <h1 style="text-align: center;margin-top: -10px;"> ({{queries.count}}) book{{ queries|pluralize }} found</h1>
+  <h1 style="text-align: center;margin-top: -30px;"> ({{queries.count}}) book{{ queries|pluralize }} found</h1>
   {% endif %}
-
-
   <div class="latest-product">
     <div class="inner-latest-product">
+
 
       {% for query in queries %}
       <div class="single-latest-product">
