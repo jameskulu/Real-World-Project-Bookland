@@ -121,6 +121,7 @@ def used_categoryView(request, slug):
         'name': name,
         'minvalue': minvalue,
         'maxvalue': maxvalue,
+        'subcategory': subcategory,
     }
 
     return render(request, 'UsedBooks/used_books_category.html', context)
