@@ -6,6 +6,8 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from Contact.forms import SubscribeForm
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.http import JsonResponse
+from django.template.loader import render_to_string
 
 
 def index(request):
@@ -23,7 +25,6 @@ def index(request):
 def product_detail(request, pk):
     products = get_object_or_404(Product, pk=pk)
     comments = Comment.objects.filter(product=products).order_by('-time_stamp')
-    # products = Product.objects.get(pk=pk)
 
     if request.method == 'POST':
 
@@ -46,6 +47,11 @@ def product_detail(request, pk):
         'comments': comments,
         'form': form,
     }
+    if request.is_ajax():
+        html = render_to_string('Books/comments.html',
+                                context, request=request)
+        return JsonResponse({'form': html})
+
     return render(request, 'Books/product_detail.html', context)
 
 
