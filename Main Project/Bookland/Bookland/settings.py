@@ -152,7 +152,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 # EMAIL_HOST_USER = os.environ.get('email')
 # EMAIL_HOST_PASSWORD = os.environ.get('password')
 EMAIL_HOST_USER = 'jameskulu55@gmail.com'
-EMAIL_HOST_PASSWORD = 'jookiugroftawoyr'
+EMAIL_HOST_PASSWORD = 'iflnjwkzljsltupa'
 EMAIL_PORT = 587
 
 # Mailchimp (Email Subscription)
